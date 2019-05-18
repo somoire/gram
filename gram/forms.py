@@ -1,25 +1,18 @@
 from django import forms
-from .models import Post,Location,Profile,Comment
+from .models import Profile,Post
+from django.contrib.auth.models import User
 
-class LocationForm(forms.ModelForm):
-    class Meta:
-        model=Location
-        fields='__all__'
-
-class PostForm(forms.ModelForm):
-    class Meta:
-        model=Post
-        exclude=['username','post_date','likes','profile_pic']
+class UserForm(forms.ModelForm):
+  class Meta:
+    model = User
+    fields = ('first_name', 'last_name', 'email')
 
 class ProfileForm(forms.ModelForm):
-    class Meta:
-        model=Profile
-        exclude=['username']
+  class Meta:
+    model = Profile
+    fields = ('bio', 'location','birth_date','website','phone_number','profile_pic')
 
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model=Comment
-        exclude=['username','post']
-        widgets = {
-            'myfield': forms.TextInput(attrs={'class':'myfieldclass'}),
-        }
+class PostForm(forms.ModelForm):
+  class Meta:
+    model = Post
+    fields = ('title', 'image')

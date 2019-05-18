@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class CloneConfig(AppConfig):
-    name = 'clone'
+class GramConfig(AppConfig):
+    name = 'gram'
