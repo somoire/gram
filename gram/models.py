@@ -45,4 +45,9 @@ class Post(models.Model):
     image = models.ImageField(uploadto = 'posts/')
     posted_on = models.DateTimeField(auto_now_add = True)
 
-    
+    def get_number_of_likes(self):
+        return self.like_set.count()
+
+    def get_number_of_comments(self):
+        return self.comment_set.count()
+
