@@ -19,4 +19,30 @@ class Profile(models.Model):
     @receiver(post_save,sender = User)
     def create_user_profile(sender,instance,created,**kwargs):
         if created:
-            Profile.objects
+            Profile.objects.create(user = instance)
+
+    @receiver(post_save,sender = User)
+    def save_user_profile(sender,instance,**kwargs):
+        instance.profile.save()
+
+    def get_number_of_followers(self):
+        if self.followers.count():
+            return self.followers.count()
+        else:
+            return 0 
+
+    def get_number_of_following(self):
+        if self.following.count():
+            return self.following.count()
+        else:
+            return 0
+    def __str__(self):
+        return self.user.username
+
+class Post(models.Model):
+    profile = models.ForeignKey(Profile, null = True, blamk = True)
+    title = models.CharField(max_length = 150)
+    image = models.ImageField(uploadto = 'posts/')
+    posted_on = models.DateTimeField(auto_now_add = True)
+
+    
