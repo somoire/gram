@@ -51,3 +51,12 @@ class Post(models.Model):
     def get_number_of_comments(self):
         return self.comment_set.count()
 
+class Comment(models.Model):
+    post = models.ForeignKey('Post')
+    user = models.ForeignKey(User)
+    comment = models.models.CharField(max_length = 200)
+    post_on = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.comment
+
