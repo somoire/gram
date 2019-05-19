@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gram.apps.GramConfig',
+    'bootstrap3',
+    'imagekit',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +79,9 @@ WSGI_APPLICATION = 'the_insta.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'instagram',
+        'USER': 'rodney',
+        'PASSWORD': '12345'
     }
 }
 
