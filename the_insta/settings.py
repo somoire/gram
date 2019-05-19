@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'the_insta.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'instagram',
+        'NAME': 'the_insta',
         'USER': 'rodney',
         'PASSWORD': '12345',
     }
