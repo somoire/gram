@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
+
 {% load static custom_tags %}
+{% load static %}
 
 
 {% block content %}
@@ -9,9 +11,9 @@
                 <div class="card view-update {{ post.pk }}">
                     <div class="card__panel-head">
                         <div class="poster__info">
-                            <a href="{% url 'profile' post.profile.user.username %}" class="poster__name">
+                            <a href="{% url 'profile' user.username %}" class="poster__name">
                               {% if post.profile.profile_pic %}
-                                <img class="poster__profilepic" src="{{ post.profile.profile_pic.url }}">
+                                <img class="poster__profilepic" src="{{ posts.profile.profile_pic.url }}">
                               {% else %}
                                 <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
                               {% endif %}

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static custom_tags %}
+{% load static %}
 
 {% block content %}
 <div class="profile">
@@ -10,7 +10,7 @@
         {% if profile.profile_pic %}
           <img class="picture-circle" src="{{ profile.profile_pic.url }}">
         {% else %}
-          <img class="picture-circle" src="{% static 'images/profile_placeholder.jpg' %}">
+          <img class="picture-circle" src="{% static 'images/profile_picture.jpg' %}">
         {% endif %}
       </div>
       <div class="col-xs-8 right">
@@ -79,7 +79,8 @@
 
   <div class="profile__body">
     <div class="row">
-      {% for post in profile.post_set.all reversed %}
+      {% for post in profile.post_set.all %}
+      {% comment %} Removed reversed {% endcomment %}
         <div class="col-xs-4">
           <div class="picture-square" style="background-image: url({{ post.image.url }})">
             <a href="{% url 'post' post.pk %}">

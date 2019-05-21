@@ -1,11 +1,11 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,reverse
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm,ProfileForm,PostForm
 from django.contrib import messages
 from django.db import transaction
 from django.contrib.auth.models import User
 from .models import Profile,Post,Comment,Like
-from django.core.urlresolvers import reverse
+# from django.core.urlresolvers import reverse
 from django.http import JsonResponse
 from annoying.decorators import ajax_request
 
@@ -76,7 +76,7 @@ def posts(request):
     if form.is_valid():
       post = Post(profile = request.user.profile, title = request.POST['title'], image = request.FILES['image'])
       post.save()
-      return redirect('profile', kwargs={'username':request.user.username})
+      return redirect('profile', request.user.username)
   else:
     form = PostForm()
   return render(request, 'post_picture.html', {"form": form})

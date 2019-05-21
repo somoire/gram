@@ -2,7 +2,8 @@
 
 {% block content %}
 <div class="row" id="explore">
-  {% for post in posts reversed %}
+  {% for post in posts %} 
+  {% comment %} Removed reversed {% endcomment %}
     <div class="col-xs-4 col-sm-3">
       <div class="picture-square" style="background-image: url({{ post.image.url }})">
         <a href="{% url 'post' post.pk %}">
