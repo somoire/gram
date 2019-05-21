@@ -81,14 +81,7 @@ WSGI_APPLICATION = 'the_insta.wsgi.application'
 
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES = { 'default': dj_database_url.config() } 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': 'instagram',
-#         'USER': 'rodney',
-#         'PASSWORD': '12345'
-#     }
-# }
+
 
 
 # Password validation
@@ -128,7 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
