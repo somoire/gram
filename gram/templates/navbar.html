@@ -24,10 +24,11 @@
                     <li><a href=""><i class="fa fa-heart-o {% active 'notifications' %}" aria-hidden="true"></i></a></li>
                     <li><a href="{% url 'profile' request.user.username %}"><i class="fa fa-user {% active 'profile' %}" aria-hidden="true"></i></a></li>
                     <li><a href="/logout"><i class="fa fa-sign-out " aria-hidden="true"></i></a></li>
+                    <li><a style="color:black;" href="/admin">ADMIN</a></li>
                 {% else %}
                     <li><a href="/accounts/login">Login</a></li>
                     <li><a href="/accounts/register/">Signup</a></li>
-                    <li><a style="color:black;" href="/admin">ADMIN</a></li>
+                    
                 {% endif %}
             </ul>
         </div>
